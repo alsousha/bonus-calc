@@ -3,7 +3,7 @@ public class Main {
         BonusService service = new BonusService();
 
         //A
-        long amount = 1000_600;
+        long amount = 1000_600_000;
         boolean registered = true;
         long expected = 30;
 
