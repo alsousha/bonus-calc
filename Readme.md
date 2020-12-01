@@ -1,4 +1,4 @@
-#СИСТЕМА СБОРКИ MAVEN, АВТОТЕСТЫ НА JUNIT5
+# СИСТЕМА СБОРКИ MAVEN, АВТОТЕСТЫ НА JUNIT5
 
 Программа **BonusService** рассчитывает бонус клиентам (лимит - 500).
 Для зарегистрированных пользователей он рассчитывается по формуле: 
@@ -15,7 +15,7 @@
     
 1. Изменена версия Java:
     
-```java
+```xml
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
@@ -25,7 +25,7 @@
 
 2. Добавлена зависимость jUnit.Jupiter
 
-```java
+```xml
     <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
