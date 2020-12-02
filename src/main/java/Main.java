@@ -11,8 +11,5 @@ public class Main {
         long actual = service.calculate(amount, registered);
         System.out.println(actual);
         //A
-        //boolean passed = expected == actual;
-
-        //System.out.println(passed);
     }
 }

@@ -31,11 +31,12 @@ class BonusServiceTest {
 
         assertEquals(expected, actual);
     }
+
     @Test
     void shouldCalculateForRegisteredAndLowerLimitValue() {
         BonusService service = new BonusService();
         //A
-        long amount = 5_000_000/3;
+        long amount = 5_000_000 / 3;
         boolean registered = true;
         long expected = 499;
 
@@ -44,11 +45,12 @@ class BonusServiceTest {
 
         assertEquals(expected, actual);
     }
+
     @Test
     void shouldCalculateForRegisteredAndUpperLimitValue() {
         BonusService service = new BonusService();
         //A
-        long amount = 5_010_000/3;
+        long amount = 5_010_000 / 3;
         boolean registered = true;
         long expected = 500;
 
@@ -72,9 +74,6 @@ class BonusServiceTest {
         assertEquals(expected, actual);
     }
 
-
-
-
     @Test
     void shouldCalculateForUnregisteredAndUnderLimit() {
         BonusService service = new BonusService();
@@ -88,6 +87,7 @@ class BonusServiceTest {
 
         assertEquals(expected, actual);
     }
+
     @Test
     void shouldCalculateForUnregisteredAndOverLimit() {
         BonusService service = new BonusService();
@@ -101,6 +101,7 @@ class BonusServiceTest {
 
         assertEquals(expected, actual);
     }
+
     @Test
     void shouldCalculateForUnregisteredAndEquallyLimit() {
         BonusService service = new BonusService();
@@ -114,6 +115,7 @@ class BonusServiceTest {
 
         assertEquals(expected, actual);
     }
+
     @Test
     void shouldCalculateForUnregisteredAndNullAmount() {
         BonusService service = new BonusService();
