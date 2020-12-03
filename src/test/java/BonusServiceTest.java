@@ -3,10 +3,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BonusServiceTest {
-
+    BonusService service = new BonusService();
     @Test
     void shouldCalculateForRegisteredAndUnderLimit() {
-        BonusService service = new BonusService();
         //A
         long amount = 1000_60;
         boolean registered = true;
@@ -20,7 +19,6 @@ class BonusServiceTest {
 
     @Test
     void shouldCalculateForRegisteredAndOverLimit() {
-        BonusService service = new BonusService();
         //A
         long amount = 1_000_000_60;
         boolean registered = true;
@@ -34,9 +32,8 @@ class BonusServiceTest {
 
     @Test
     void shouldCalculateForRegisteredAndLowerLimitValue() {
-        BonusService service = new BonusService();
         //A
-        long amount = 5_000_000 / 3;
+        long amount = 1666666;
         boolean registered = true;
         long expected = 499;
 
@@ -48,11 +45,10 @@ class BonusServiceTest {
 
     @Test
     void shouldCalculateForRegisteredAndUpperLimitValue() {
-        BonusService service = new BonusService();
         //A
-        long amount = 5_010_000 / 3;
+        long amount = 1666666;
         boolean registered = true;
-        long expected = 500;
+        long expected = 499;
 
         //A
         long actual = service.calculate(amount, registered);
@@ -62,7 +58,6 @@ class BonusServiceTest {
 
     @Test
     void shouldCalculateForRegisteredAndNullAmount() {
-        BonusService service = new BonusService();
         //A
         long amount = 0;
         boolean registered = true;
@@ -76,7 +71,6 @@ class BonusServiceTest {
 
     @Test
     void shouldCalculateForUnregisteredAndUnderLimit() {
-        BonusService service = new BonusService();
         //A
         long amount = 2_000_60;
         boolean registered = false;
@@ -90,7 +84,6 @@ class BonusServiceTest {
 
     @Test
     void shouldCalculateForUnregisteredAndOverLimit() {
-        BonusService service = new BonusService();
         //A
         long amount = 1_000_000_60;
         boolean registered = false;
@@ -104,7 +97,6 @@ class BonusServiceTest {
 
     @Test
     void shouldCalculateForUnregisteredAndEquallyLimit() {
-        BonusService service = new BonusService();
         //A
         long amount = 5_000_000;
         boolean registered = false;
@@ -118,13 +110,61 @@ class BonusServiceTest {
 
     @Test
     void shouldCalculateForUnregisteredAndNullAmount() {
-        BonusService service = new BonusService();
         //A
         long amount = 0;
         boolean registered = true;
         long expected = 0;
 
         //A
+        long actual = service.calculate(amount, registered);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldCalculateForRegisteredAndUnderOneHundred() {
+
+        long amount = 9000;
+        boolean registered = true;
+        long expected = 2;
+
+        long actual = service.calculate(amount, registered);
+
+        assertEquals(expected, actual);
+    }
+
+
+    @Test
+    void shouldCalculateForUnregisteredAndUpperOneHundred() {
+
+        long amount = 9000;
+        boolean registered = false;
+        long expected = 0;
+
+        long actual = service.calculate(amount, registered);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldCalculateForRegisteredAndUpperOneHundred() {
+
+        long amount = 500000;
+        boolean registered = true;
+        long expected = 150;
+
+        long actual = service.calculate(amount, registered);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldCalculateForUnregisteredAndUnderOneHundred() {
+
+        long amount = 1500000;
+        boolean registered = false;
+        long expected = 150;
+
         long actual = service.calculate(amount, registered);
 
         assertEquals(expected, actual);
