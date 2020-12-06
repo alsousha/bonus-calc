@@ -1,0 +1,11 @@
+"registered user, bonus under limit",100060,true,30
+"registered user, bonus over limit",100000600,true,500
+"registered user, bonus lower limit",1666666,true,499
+"registered user, bonus null amount",0,true,0
+"registered user, bonus under one hundred",9000,true,2
+"registered user, bonus upper one hundred",500000,true,150
+"unregistered user, bonus under limit",200060,false,20
+"unregistered user, bonus over limit",100000060,false,500
+"unregistered user, bonus equally limit",5000000,false,500
+"unregistered user, bonus under one hundred",9000,false,0
+"unregistered user, bonus upper one hundred",1500000,false,150
